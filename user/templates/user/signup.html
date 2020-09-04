@@ -1,0 +1,88 @@
+{% extends "home/header.html" %}
+{% load static %}
+
+{% block title %} Sign Up {% endblock title %}
+
+{% block breadcrum %} Sign Up {% endblock breadcrum %}
+
+{% block subtitle %} You came here to Sign Up at right place {% endblock subtitle%}
+
+{% block page_title %} Sign Up {% endblock page_title %}
+
+{% block content %}
+    <section class="signup_area section--padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    {% if error %}
+                    <h4>{{ error }}</h4>
+                    {% endif %}
+                    <form method="POST" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        <div class="cardify signup_form">
+                            <div class="login--header">
+                                <h3>Create Your Account</h3>
+                                <p>Please fill the following fields with appropriate information to register a new MartPlace
+                                    account.
+                                </p>
+                            </div>
+                            <!-- end .login_header -->
+
+                            <div class="login--form">
+
+                                <div class="form-group">
+                                    <label for="uname">Your Name</label>
+                                    <input name="name" id="name" type="text" class="text_field" placeholder="Enter your Name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email_ad">Email Address</label>
+                                    <input name="email_ad" id="email_ad" type="text" class="text_field" placeholder="Enter your email address">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="uname">Username</label>
+                                    <input name="uname" id="uname" type="text" class="text_field" placeholder="Enter your username...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input name="password" id="password" type="text" class="text_field" placeholder="Enter your password...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="conf_pass">Confirm Password</label>
+                                    <input name="conf_pass" id="conf_pass" type="text" class="text_field" placeholder="Confirm password">
+                                </div>
+
+                                <button class="btn btn--md btn--round register_btn" type="submit">Register Now</button>
+
+                                <div class="login_assist">
+                                    <p>Already have an account?
+                                        <a href="signup.html">Login</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- end .login--form -->
+                        </div>
+                        <!-- end .cardify -->
+                    </form>
+                </div>
+                <!-- end .col-md-6 -->
+            </div>
+            <!-- end .row -->
+        </div>
+        <!-- end .container -->
+    </section>
+    
+
+    {% include 'home/footer.html' %}
+
+    {% endblock %}
+
+
+</body>
+
+
+<!-- Mirrored from demo.aazztech.com/theme/html/martplace/dist/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Sep 2020 15:04:23 GMT -->
+</html>

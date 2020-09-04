@@ -1,0 +1,179 @@
+
+{% extends "home/header.html" %}
+{% load static %}
+{% block title %} Invoice {% endblock title %}
+{% block breadcrum %} Invoice {% endblock breadcrum %}
+
+{% block subtitle %} Your Invoice of the Products  {% endblock subtitle%}
+
+{% block page_title %} Invoice {% endblock page_title %}
+
+{% block content %}
+
+
+    <section class="dashboard-area">
+        <div class="dashboard_menu_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="dashboard_menu">
+                            <li>
+                                <a href="dashboard.html">
+                                    <span class="lnr lnr-home"></span>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-setting.html">
+                                    <span class="lnr lnr-cog"></span>Setting</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-purchase.html">
+                                    <span class="lnr lnr-cart"></span>Purchase</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-add-credit.html">
+                                    <span class="lnr lnr-dice"></span>Add Credits</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-statement.html">
+                                    <span class="lnr lnr-chart-bars"></span>Statements</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-upload.html">
+                                    <span class="lnr lnr-upload"></span>Upload Items</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-manage-item.html">
+                                    <span class="lnr lnr-briefcase"></span>Manage Items</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-withdrawal.html">
+                                    <span class="lnr lnr-briefcase"></span>Withdrawals</a>
+                            </li>
+                        </ul>
+                        <!-- end /.dashboard_menu -->
+                    </div>
+                    <!-- end /.col-md-12 -->
+                </div>
+                <!-- end /.row -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+
+        <div class="dashboard_contents">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="dashboard_title_area">
+                            <div class="pull-left">
+                                <div class="dashboard__title">
+                                    <h3>Invoice</h3>
+                                </div>
+                            </div>
+
+                            <div class="pull-right">
+                                <a href="#" class="btn btn--round print_btn">
+                                    <span class="lnr lnr-printer"></span>Print</a>
+                                <a href="#" class="btn btn--round btn--sm">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end /.col-md-12 -->
+                </div>
+                <!-- end /.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="invoice">
+                            <div class="invoice__head">
+                                <div class="invoice_logo">
+                                    <img src="images/logo.png" alt="">
+                                </div>
+
+                                <div class="info">
+                                    <h4>Invoice info</h4>
+                                    <p>Order # MP810094</p>
+                                </div>
+                            </div>
+                            <!-- end /.invoice__head -->
+
+                            <div class="invoice__meta">
+                                <div class="address">
+                                    <h5 class="bold">AazzTech</h5>
+                                    <p>1355 Market Street, Suite 900</p>
+                                    <p>San Francisco, CA 94103</p>
+                                    <p>United States</p>
+                                </div>
+
+                                <div class="date_info">
+                                    <p>
+                                        <span>Invoice Date</span>May 05, 2017</p>
+                                    <p>
+                                        <span>Due Date</span>May 10, 2017</p>
+                                    <p class="status">
+                                        <span>Status</span>Sale</p>
+                                </div>
+                            </div>
+                            <!-- end /.invoice__meta -->
+
+                            <div class="invoice__detail">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>AazzTech</th>
+                                                <th>Item</th>
+                                                <th>License</th>
+                                                <th>Unit Cost</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <tr>
+                                                <td>03 Jul 2017</td>
+                                                <td class="author">AazzTech</td>
+                                                <td class="detail">
+                                                    <a href="#">Multipurpose Blog Template</a>
+                                                </td>
+                                                <td>Regular</td>
+                                                <td>$30</td>
+                                                <td>$30</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="pricing_info">
+                                    <p>Sub - Total amount: $30</p>
+                                    <p class="bold">Total : $30</p>
+                                </div>
+                            </div>
+                            <!-- end /.invoice_detail -->
+                        </div>
+                        <!-- end /.invoice -->
+
+
+                    </div>
+                    <!-- end /.row -->
+                </div>
+                <!-- end /.row -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+    </section>
+    <!--================================
+            END DASHBOARD AREA
+    =================================-->
+
+    {% include 'home/footer.html' %}
+   
+    {% endblock  %}
+
+</body>
+
+
+</html>

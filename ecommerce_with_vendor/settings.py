@@ -25,7 +25,7 @@ SECRET_KEY = 'h_s7exy15!fq5)@ola0x5cj%v_8k^d9f+qqy19=%2=j+q6+1-)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'products',
     'user',
     'tracker',
+    'vendor',
 ]
 
 MIDDLEWARE = [

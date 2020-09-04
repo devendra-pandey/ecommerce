@@ -1,0 +1,132 @@
+
+{% extends "home/header.html" %}
+{% load static %}
+
+{% block title %} My DashBoard {% endblock title %}
+
+{% block breadcrum %} My DashBoard {% endblock breadcrum %}
+
+{% block subtitle %} You came here to My DashBoard at right place {% endblock subtitle%}
+
+{% block page_title %} My DashBoard {% endblock page_title %}
+
+{% block content %}
+
+    <section class="dashboard-area dashboard_purchase">
+        <div class="dashboard_menu_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="dashboard_menu">
+                            <li class="active">
+                                <a href="customer-dashboard.html">
+                                    <span class="lnr lnr-briefcase"></span>Purchase History</a>
+                            </li>
+                            <li>
+                                <a href="customer-downloads.html">
+                                    <span class="lnr lnr-download"></span>Downloads</a>
+                            </li>
+                            <li>
+                                <a href="customer-info.html">
+                                    <span class="lnr lnr-cog"></span>Account Info</a>
+                            </li>
+                        </ul>
+                        <!-- end /.dashboard_menu -->
+                    </div>
+                    <!-- end /.col-md-12 -->
+                </div>
+                <!-- end /.row -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+
+        <div class="dashboard_contents">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="modules__content">
+                            <div class="table_module">
+                                <div class="table_header">
+                                    <h3>Purchase History</h3>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table withdraw__table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Details</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#6576</td>
+                                                <td>09 Jul 2017</td>
+                                                <td class="bold">$18.50</td>
+                                                <td class="bold">
+                                                    <a href="#">View Details and Downloads</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+    </section>
+    {% include 'home/footer.html' %}
+
+    {% endblock %}
+</body>
+
+
+</html>
