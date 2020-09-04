@@ -53,6 +53,6 @@ def message_comp(request):
 def recover_pass(request):
     return render(request, 'user/recover-pass.html')
      
-# def logout(request):
-#     auth.logout(request)
-#     return redirect('login')
+def logout(request):
+    auth.logout(request)
+    return redirect('login')

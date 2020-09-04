@@ -1,0 +1,140 @@
+{% extends "home/header.html" %}
+{% load static %}
+
+{% block title %} Cart {% endblock title %}
+
+{% block breadcrum %} Cart {% endblock breadcrum %}
+
+{% block subtitle %} You came here to Cart at right place {% endblock subtitle%}
+
+{% block page_title %} Cart {% endblock page_title %}
+
+{% block content %}
+    <section class="cart_area section--padding2 bgcolor">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product_archive added_to__cart">
+                        <div class="title_area">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h4>Product Details</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4 class="add_info">Category</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Quantity</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Item Unit Price</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Total Price</h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <h4>Remove</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        {% for item in cart %}
+                            {% with product=item.product %}
+                            <div class="col-md-12">
+                                <div class="single_product clearfix">
+                                    <div class="col-lg-5 col-md-7 v_middle">
+                                        <div class="product__description">
+                                            <img src="{% if product.image %}{{ product.image.url }}
+                                            {% else %}{% static "img/no_image.png" %}{% endif %}">" alt="Purchase image">
+                                            <div class="short_desc">
+                                                <a href="{{ product.get_absolute_url }">
+                                                    <h4>{{ product.name }}</h4>
+                                                </a>
+                                                <p>Nunc placerat mi id nisi inter dum mollis. Praesent phare...</p>
+                                            </div>
+                                        </div>
+                                        <!-- end /.product__description -->
+                                    </div>
+                                    <!-- end /.col-md-5 -->
+
+                                    <div class="col-lg-3 col-md-2 v_middle">
+                                        <div class="product__additional_info">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <img src="images/catword.png" alt="">Wordpress</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- end /.product__additional_info -->
+                                    </div>
+                                    <!-- end /.col-md-3 -->
+
+                                    <div class="col-lg-4 col-md-3 v_middle">
+                                        <div class="item_action v_middle">
+                                            <a href="#" class="remove_from_cart">
+                                                <span class="lnr lnr-trash">{{ item.quantity }}</span>
+                                            </a>
+                                        </div>
+                                        <div class="product__price_download">
+                                            <div class="item_price v_middle">
+                                                <span>Rs {{item.price }}</span>
+                                            </div>
+                                            <div class="product__price_download">
+                                                <div class="item_price v_middle">
+                                                    <span>Rs {{item.total_price}}</span>
+                                                </div>
+                                            <div class="item_action v_middle">
+                                                <a href="{% url "cart:cart_remove" product.id%}" class="remove_from_cart">
+                                                    <span class="lnr lnr-trash"></span>
+                                                </a>
+                                            </div>
+                                            <!-- end /.item_action -->
+                                        </div>
+                                        <!-- end /.product__price_download -->
+                                    </div>
+                                    <!-- end /.col-md-4 -->
+                                </div>
+                                <!-- end /.single_product -->
+                            </div>
+                            {% endwith %}
+                        {% endfor %}
+
+                        </div>
+
+                        <!-- end /.row -->
+
+                        <div class="row">
+                            <div class="col-md-6 offset-md-6">
+                                <div class="cart_calculation">
+                                    <div class="cart--total">
+                                        <p>
+                                            <span>Grand Total</span>${{ cart.get_total_price }}</p>
+                                    </div>
+
+                                    <a href="#" class="btn btn--round btn--md checkout_link">Proceed To Checkout</a>
+                                </div>
+                            </div>
+                            <!-- end .col-md-12 -->
+                        </div>
+                        <a href="/products" class="btn btn--round btn--md checkout_link">Continue Shopping Back</a>
+                    </div>
+                    
+                    <!-- end /.product_archive2 -->
+                </div>
+                <!-- end .col-md-12 -->
+            </div>
+            <!-- end .row -->
+
+        </div>
+        <!-- end .container -->
+    </section>
+    {% include 'home/footer.html' %}
+
+    {% endblock %}
+</body>
+
+
+<!-- Mirrored from demo.aazztech.com/theme/html/martplace/dist/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Sep 2020 15:04:53 GMT -->
+</html>

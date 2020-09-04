@@ -17,6 +17,7 @@ urlpatterns = [
     path('vendor_uploads', views.vendor_uploads , name='vendor_uploads'),
     path('vendor_reviews', views.vendor_reviews , name='vendor_reviews'),
     path('vendor_withdrawal', views.vendor_withdrawal , name='vendor_withdrawal'),
+    path('vendor_signup', views.vendor_signup , name='vendor_signup'),
     
    
 ]

@@ -6,7 +6,6 @@ from django.conf.urls import url
 
 
 urlpatterns = [
-    path('cart', views.cart , name='cart'),
     
     path('checkout', views.checkout , name='checkout'),
     path('invoice', views.invoice , name='invoice'),

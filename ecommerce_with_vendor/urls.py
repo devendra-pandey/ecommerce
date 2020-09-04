@@ -23,8 +23,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include("home.urls")),
     path('',include("order.urls")),
-    path('',include("products.urls")),
+    path('',include("products.urls", namespace='products')),
     path('',include("tracker.urls")),
     path('',include("user.urls")),
     path('',include("vendor.urls")),
+    path('',include("blog.urls")),
+    path('', include("cart.urls", namespace='cart')),
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

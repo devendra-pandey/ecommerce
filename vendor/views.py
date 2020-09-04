@@ -5,6 +5,8 @@ from django.shortcuts import render,redirect
 def vendor_message(request):
     return render(request, 'vendor/message.html')
 
+def vendor_signup(request):
+    return render(request, 'vendor/vendor_signup.html')
 
 def vendor_message_comp(request):
     return render(request, 'vendor/message-compose.html')

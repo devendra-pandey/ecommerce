@@ -14,5 +14,5 @@ urlpatterns = [
     path('message_comp', views.message_comp , name='message_comp'),
     path('recover_pass', views.recover_pass , name='recover_pass'),
     
-    # path('logout', views.logout , name='logout'),
+    path('logout', views.logout , name='logout'),
 ]
