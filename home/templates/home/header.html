@@ -220,10 +220,11 @@
                                                 <div class="cart_product">
                                                     <div class="product__info">
                                                         <div class="thumbn">
-                                                            <img src="{% if product.image %} {{ product.image.url }}" height="70px" width="70px"
+                                                            <img src="{% if product.image %} {{ product.image.url }}"
                                                             {% else %}
-                                                        {% static 'no_image.png' %} height="70px" width="70px"
-                                                        {% endif %}" alt="cart product thumbnail">
+                                                        {% static 'no_image.png' %}
+                                                        
+                                                        {% endif %}" height='70px' width='70px'>>
                                                         </div>
 
                                                         <div class="info">
@@ -262,7 +263,7 @@
                                                 </div>
                                                 <div class="cart_action">
                                                     <a class="go_cart" href="/cart">View Cart</a>
-                                                    <a class="go_checkout" href="/checkout">Checkout</a>
+                                                    <a class="go_checkout" href="{% url "order:order_create" %}">Checkout</a>
                                                 </div>
                                             </div>
                                         </div>
