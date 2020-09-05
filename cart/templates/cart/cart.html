@@ -43,27 +43,28 @@
                             {% with product=item.product %}
                             <div class="col-md-12">
                                 <div class="single_product clearfix">
-                                    <div class="col-lg-5 col-md-7 v_middle">
+                                    <div class="col-lg-4 col-md-5 v_middle">
                                         <div class="product__description">
-                                            <img src="{% if product.image %}{{ product.image.url }}
-                                            {% else %}{% static "img/no_image.png" %}{% endif %}">" alt="Purchase image">
+                                            <img src="{% if product.image %} {{ product.image.url }}" height="70px" width="70px"
+                                                        {% else %}
+                                                    {% static 'no_image.png' %}
+                                                    {% endif %}" alt="Purchase image">
                                             <div class="short_desc">
                                                 <a href="{{ product.get_absolute_url }">
-                                                    <h4>{{ product.name }}</h4>
+                                                    <h6>{{ product.name }}</h6>
                                                 </a>
-                                                <p>Nunc placerat mi id nisi inter dum mollis. Praesent phare...</p>
                                             </div>
                                         </div>
-                                        <!-- end /.product__description -->
+                                        
                                     </div>
                                     <!-- end /.col-md-5 -->
 
-                                    <div class="col-lg-3 col-md-2 v_middle">
+                                    <div class="col-lg-2 col-md-2 v_middle">
                                         <div class="product__additional_info">
                                             <ul>
                                                 <li>
                                                     <a href="#">
-                                                        <img src="images/catword.png" alt="">Wordpress</a>
+                                                {{ product.category }}</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -71,11 +72,10 @@
                                     </div>
                                     <!-- end /.col-md-3 -->
 
-                                    <div class="col-lg-4 col-md-3 v_middle">
+                                    <div class="col-lg-4 col-md-2 v_middle">
                                         <div class="item_action v_middle">
-                                            <a href="#" class="remove_from_cart">
-                                                <span class="lnr lnr-trash">{{ item.quantity }}</span>
-                                            </a>
+                                                <span>{{ item.quantity }}</span>
+                                            
                                         </div>
                                         <div class="product__price_download">
                                             <div class="item_price v_middle">
@@ -89,6 +89,7 @@
                                                 <a href="{% url "cart:cart_remove" product.id%}" class="remove_from_cart">
                                                     <span class="lnr lnr-trash"></span>
                                                 </a>
+                                                
                                             </div>
                                             <!-- end /.item_action -->
                                         </div>
@@ -109,16 +110,31 @@
                             <div class="col-md-6 offset-md-6">
                                 <div class="cart_calculation">
                                     <div class="cart--total">
-                                        <p>
-                                            <span>Grand Total</span>${{ cart.get_total_price }}</p>
+                                        {% with total_items=cart|length %}
+                                                {% if cart|length > 0 %}
+                                                Your cart:
+                                                {{ total_items }} item{{ total_items|pluralize }},
+                                                <p>
+                                                    <span>Grand Total</span>${{ cart.get_total_price }}
+                                                </p>
+                                                
+                                                {% else %}
+                                                <p>
+                                                    <span>Your cart is empty.</span>
+                                                </p>
+                                                
+                                                {% endif %}
+                                                {% endwith %}
+                                        
                                     </div>
 
                                     <a href="#" class="btn btn--round btn--md checkout_link">Proceed To Checkout</a>
+                                    <a href="/products" class="btn btn--round btn--md checkout_link">Continue Shopping Back</a>
                                 </div>
                             </div>
                             <!-- end .col-md-12 -->
                         </div>
-                        <a href="/products" class="btn btn--round btn--md checkout_link">Continue Shopping Back</a>
+                        
                     </div>
                     
                     <!-- end /.product_archive2 -->

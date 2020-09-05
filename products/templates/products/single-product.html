@@ -1229,8 +1229,12 @@
 
                             <div class="purchase-button">
                                 <a href="#" class="btn btn--lg btn--round">Purchase Now</a>
-                                <a href="#" class="btn btn--lg btn--round cart-btn">
-                                    <span class="lnr lnr-cart"></span> Add To Cart</a>
+                                
+                                    <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                        {{ cart_product_form }}
+                                        {% csrf_token %}
+                                        <input class="btn btn--lg btn--round cart-btn" type="submit" value="Add to cart">
+                                        </form>
                             </div>
                             <!-- end /.purchase-button -->
                         </div>

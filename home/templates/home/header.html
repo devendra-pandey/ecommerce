@@ -199,59 +199,66 @@
                                     </li>
                                     <li class="has_dropdown">
                                         <div class="icon_wrap">
-                                            <a href="/cart"><span class="lnr lnr-cart"></span></a>
-                                            <span class="notification_count purch">2</span>
+                                        {% with total_items=cart|length %}
+                                            {% if cart|length > 0 %}
+                                                    <a href="/cart">
+                                                    <span class="lnr lnr-cart"></span></a>
+                                                    <span class="notification_count purch">{{ total_items }}</span>
+                                                {% else %}
+                                                    <a href="/cart">
+                                                    <span class="lnr lnr-cart"></span></a>
+                                                    <span class="notification_count purch">0</span>
+                                            {% endif %}
+                                        {% endwith %}
+
                                         </div>
 
                                         <div class="dropdowns dropdown--cart">
                                             <div class="cart_area">
+                                                {% for item in cart %}
+                                                    {% with product=item.product %}
                                                 <div class="cart_product">
                                                     <div class="product__info">
                                                         <div class="thumbn">
-                                                            <img src="images/capro1.jpg" alt="cart product thumbnail">
+                                                            <img src="{% if product.image %} {{ product.image.url }}" height="70px" width="70px"
+                                                            {% else %}
+                                                        {% static 'no_image.png' %} height="70px" width="70px"
+                                                        {% endif %}" alt="cart product thumbnail">
                                                         </div>
 
                                                         <div class="info">
-                                                            <a class="title" href="single-product.html">Finance and Consulting Business Theme</a>
+                                                            <a class="title" href="single-product.html">{{ product.name }}</a>
                                                             <div class="cat">
                                                                 <a href="#">
-                                                                    <img src="images/catword.png" alt="">Wordpress</a>
+                                                                    <img src="images/catword.png" alt="">{{ product.category }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="product__action">
-                                                        <a href="#">
+                                                        <a href="{% url "cart:cart_remove" product.id%}"">
                                                             <span class="lnr lnr-trash"></span>
                                                         </a>
-                                                        <p>$60</p>
+                                                        <p>${{item.price }}</p>
                                                     </div>
                                                 </div>
-                                                <div class="cart_product">
-                                                    <div class="product__info">
-                                                        <div class="thumbn">
-                                                            <img src="images/capro2.jpg" alt="cart product thumbnail">
-                                                        </div>
-
-                                                        <div class="info">
-                                                            <a class="title" href="single-product.html">Flounce - Multipurpose OpenCart Theme</a>
-                                                            <div class="cat">
-                                                                <a href="#">
-                                                                    <img src="images/catword.png" alt="">Wordpress</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="product__action">
-                                                        <a href="#">
-                                                            <span class="lnr lnr-trash"></span>
-                                                        </a>
-                                                        <p>$60</p>
-                                                    </div>
-                                                </div>
+                                                {% endwith %}
+                                        {% endfor %}
+                                                
                                                 <div class="total">
-                                                    <p>
-                                                        <span>Total :</span>$80</p>
+                                                    {% with total_items=cart|length %}
+                                                        {% if cart|length > 0 %}
+                                                            <p>
+                                                                <span>Total :</span>RS${{ cart.get_total_price }}
+                                                            </p>
+                                                        {% else %}
+                                                            <p>
+                                                                <span>Your cart is empty.</span>
+                                                            </p>
+                                                            
+                                                            {% endif %}
+                                                            {% endwith %}    
+
                                                 </div>
                                                 <div class="cart_action">
                                                     <a class="go_cart" href="/cart">View Cart</a>
@@ -341,8 +348,14 @@
                                         <li>
                                             <a href="/cart">
                                                 <div class="icon_wrap">
-                                                    <span class="lnr lnr-cart"></span>
-                                                    <span class="notification_count purch">2</span>
+                                                    {% with total_items=cart|length %}
+                                                        {% if cart|length > 0 %}
+                                                                <span class="lnr lnr-cart"></span>
+                                                                <span class="notification_count purch">{{ total_items }}</span>
+                                                            {% else %}
+                                                                <span class="notification_count purch">Your cart is empty.</span>
+                                                        {% endif %}
+                                                    {% endwith %}
                                                 </div>
                                             </a>
                                         </li>
