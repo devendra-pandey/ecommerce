@@ -10,3 +10,10 @@ plss install the Rabbit Mq and start in your system if its not installed and run
 5. create the superuser for the admin side 
     python3 manage.py createsuperuser
 6. python3 manage.py runserver
+
+
+
+For testing Purpose of the Cards You can Use.
+card Number - 4111 1111 1111 1111
+Cvv - 123
+expiry Date - 12/24
