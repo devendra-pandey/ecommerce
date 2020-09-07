@@ -10,10 +10,11 @@ plss install the Rabbit Mq and start in your system if its not installed and run
 5. create the superuser for the admin side 
     python3 manage.py createsuperuser
 6. python3 manage.py runserver
+7. Run celery system Parallel By using the following command-
+    celery -A ecommerce_with_vendor worker -l info
 
 
-
-For testing Purpose for the Payments You can use following Cards Informations.
-card Number - 4111 1111 1111 1111
-Cvv - 123
-expiry Date - 12/24
+8. For testing Purpose for the Payments You can use following Cards Informations.
+    card Number - 4111 1111 1111 1111
+    Cvv - 123
+    expiry Date - 12/24
