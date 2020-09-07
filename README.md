@@ -13,7 +13,7 @@ plss install the Rabbit Mq and start in your system if its not installed and run
 
 
 
-For testing Purpose of the Cards You can Use.
+For testing Purpose for the Payments You can use following Cards Informations.
 card Number - 4111 1111 1111 1111
 Cvv - 123
 expiry Date - 12/24
