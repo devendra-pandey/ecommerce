@@ -11,6 +11,8 @@ urlpatterns = [
     path('create/', views.order_create, name='order_create'),
     path('invoice', views.invoice , name='invoice'),
     
-    
+    path('admin/order/<int:order_id>/', views.admin_order_detail,name='admin_order_detail'),
+ 
+ 
    
 ]

@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from braintree import Configuration, Environment
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,6 +26,25 @@ SECRET_KEY = 'h_s7exy15!fq5)@ola0x5cj%v_8k^d9f+qqy19=%2=j+q6+1-)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+## Braintree settings
+
+BRAINTREE_PRODUCTION = False
+BRAINTREE_MERCHANT_ID = '9fvq9365sz3xzf9r' # Merchant ID
+BRAINTREE_PUBLIC_KEY = 'z8pzp6zxyrbzrf83' # Public Key
+BRAINTREE_PRIVATE_KEY = '928cce1fa6024c5e27f1d66eb05631f1'
+
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
+
+# ## stripe payment 
+# STRIPE_SECRET_KEY = 'pk_test_51HOHzCLahNh0FeFlKrU6ZHjUcloMOh1w5QWXJRHzjgg7CimzcCcGesrzkvd8onvClfcBZNuDHrAtPt58oNtofSzg009WrlQjHk'
+# STRIPE_PUBLISHABLE_KEY = 'sk_test_51HOHzCLahNh0FeFl7D6CIM58JijHwsra0AU34wyNrb3Ed8nhIPcdiLX2K2qA3kG0HVbzsVjSnNUEw88m0OqflS8O00HFafJoiu'
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -44,7 +65,8 @@ INSTALLED_APPS = [
     'tracker',
     'vendor',
     'blog',
-    'cart'
+    'cart',
+    'payment.apps.PaymentConfig',
 ]
 
 CART_SESSION_ID = 'cart'

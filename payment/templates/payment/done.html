@@ -1,0 +1,57 @@
+
+{% extends "home/header.html" %}
+{% load static %}
+{% block title %}Done{% endblock title %}
+{% block breadcrum %} Done {% endblock breadcrum %}
+
+{% block subtitle %} Your Products is Your {% endblock subtitle%}
+
+{% block page_title %} Done {% endblock page_title %}
+
+{% block content %}
+
+
+    <section class="dashboard-area">
+        <div class="dashboard_contents">
+            <div class="container">
+                <form  class="setting_form">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="information_module">
+                                <div class="toggle_title">
+                                    <h4>Thank you </h4>
+                                </div>
+
+                                <div class="information__set">
+                                    <div class="information_wrapper form--fields">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="first_name">Your order has been successfully completed and paid
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end /.information__set -->
+                            </div>
+                            <!-- end /.information_module -->
+                        </div>
+                    </div>
+                    <!-- end /.row -->
+                </form>
+                <!-- end /form -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+    </section>
+    {% include 'home/footer.html' %}
+   
+    {% endblock  %}
+
+
+
+</body>
+</html>

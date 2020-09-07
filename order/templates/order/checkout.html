@@ -31,6 +31,7 @@
                                                     <label for="first_name">First Name
                                                         <sup>*</sup>
                                                     </label>
+                                                    <input type="hidden" name="user"  class="text_field" value="{{ request.user.id }}">
                                                     <input type="text" name="first_name" id="first_name" class="text_field" placeholder="First Name" value="Ron">
                                                 </div>
                                             </div>
@@ -115,24 +116,23 @@
                             </div>
                             <!-- end /.information_module-->
 
-                            <div class="information_module payment_options">
+                            <!-- <div class="information_module payment_options">
                                 <div class="toggle_title">
                                     <h4>Select Payment Method</h4>
-                                </div>
+                                </div> -->
 
-                                <ul>
+                                <!-- <ul>
                                     <li>
                                         <div class="custom-radio">
-                                            <input type="radio" id="opt1" class="" name="filter_opt">
-                                            <label for="opt1">
-                                                <span class="circle"></span>Credit Card</label>
+                                            
+                                                <input type="submit" id="submitBtn" value="payment with stripe">
                                         </div>
                                         <img src="images/cards.png" alt="Visa Cards">
                                     </li>
 
                                     <li>
                                         <div class="custom-radio">
-                                            <input type="radio" id="opt2" class="" name="filter_opt">
+                                            <input type="radio" id="paypal" class="" name="payment_option">
                                             <label for="opt2">
                                                 <span class="circle"></span>Paypal</label>
                                         </div>
@@ -141,24 +141,21 @@
 
                                     <li>
                                         <div class="custom-radio">
-                                            <input type="radio" id="opt3" class="" name="filter_opt">
+                                            <input type="radio" id="COD" class="" name="payment_option">
                                             <label for="opt3">
-                                                <span class="circle"></span>Martplace Credit</label>
+                                                <span class="circle"></span>cash On Delivery</label>
                                         </div>
-                                        <p>Balance
-                                            <span class="bold">$180</span>
-                                        </p>
                                     </li>
-                                </ul>
+                                </ul> -->
 
-                                <div class="payment_info modules__content">
+                                <!-- <div class="payment_info modules__content">
                                     <div class="form-group">
                                         <label for="card_number">Card Number</label>
                                         <input id="card_number" type="text" class="text_field" placeholder="Enter your card number here...">
-                                    </div>
+                                    </div> -->
 
                                     <!-- lebel for date selection -->
-                                    <label for="name">Expire Date</label>
+                                    <!-- <label for="name">Expire Date</label>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
@@ -181,12 +178,12 @@
                                                     <span class="lnr lnr-chevron-down"></span>
                                                 </div>
                                                 <!-- end /.select-wrap -->
-                                            </div>
+                                            <!-- </div> -->
                                             <!-- end /.form-group -->
-                                        </div>
+                                        <!-- </div> -->
                                         <!-- end /.col-md-6-->
 
-                                        <div class="col-md-6 col-sm-6">
+                                        <!-- <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
                                                 <div class="select-wrap select-wrap2">
                                                     <select name="years" id="years">
@@ -205,21 +202,21 @@
                                                         <option value="17">2017</option>
                                                     </select>
                                                     <span class="lnr lnr-chevron-down"></span>
-                                                </div>
+                                                </div> -->
                                                 <!-- end /.select-wrap -->
-                                            </div>
+                                            <!-- </div> -->
                                             <!-- end /.form-group -->
-                                        </div>
+                                        <!-- </div> -->
                                         <!-- end /.col-md-6-->
-                                    </div>
+                                    <!-- </div> -->
                                     <!-- end /.row -->
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label for="cv_code">CVV Code</label>
                                                 <input id="cv_code" type="text" class="text_field" placeholder="Enter code here...">
-                                            </div>
+                                            </div>  -->
 
                                             <button type="submit" class="btn btn--round btn--default">Confirm Order</button>
                                         </div>

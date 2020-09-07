@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from order.models import Order
 
 # Create your views here.
 
@@ -38,7 +39,9 @@ def login(request):
         return render(request, 'user/login.html')
     
 def user_dashboard(request):
-    return render(request, 'user/customer_dashboard.html')
+    user_id = request.user.id
+    order = Order.objects.filter(user = user_id).order_by("-id")
+    return render(request, 'user/customer_dashboard.html',{'order':order})
 
 def user_info(request):
     return render(request, 'user/customer_info.html')

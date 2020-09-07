@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include("home.urls")),
+    path('',include("home.urls" , namespace='home')),
     path('',include("order.urls", namespace='order')),
     path('',include("products.urls", namespace='products')),
     path('',include("tracker.urls")),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('',include("vendor.urls")),
     path('',include("blog.urls")),
     path('', include("cart.urls", namespace='cart')),
+    path('payment/', include('payment.urls', namespace='payment')),
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

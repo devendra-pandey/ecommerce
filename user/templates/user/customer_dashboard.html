@@ -63,54 +63,17 @@
                                         </thead>
 
                                         <tbody>
+                                            {% for orders in order %}
                                             <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
+                                                <td>{{ orders.id }}</td>
+                                                <td>{{ orders.created }}</td>
+                                                <td class="bold"></td>
                                                 <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
+                                                    <a href="/invoice">View Details and Downloads</a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
-                                                <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
-                                                <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
-                                                <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
-                                                <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#6576</td>
-                                                <td>09 Jul 2017</td>
-                                                <td class="bold">$18.50</td>
-                                                <td class="bold">
-                                                    <a href="#">View Details and Downloads</a>
-                                                </td>
-                                            </tr>
+                                            {% endfor %}
+                                            
                                         </tbody>
                                     </table>
                                 </div>

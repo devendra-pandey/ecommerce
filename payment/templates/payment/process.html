@@ -1,0 +1,151 @@
+
+{% extends "home/header.html" %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+{% block breadcrum %} Checkout {% endblock breadcrum %}
+
+{% block subtitle %} Your Products is almost Your {% endblock subtitle%}
+
+{% block page_title %} Checkout {% endblock page_title %}
+
+{% block content %}
+
+
+    <section class="dashboard-area">
+        <div class="dashboard_contents">
+            <div class="container">
+                <form action="." method="post" id="payment" class="setting_form">
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="information_module">
+                                <div class="toggle_title">
+                                    <h4>Biling Information </h4>
+                                </div>
+
+                                
+                            </div>
+                            <!-- end /.information_module -->
+                        </div>
+                        <!-- end /.col-md-6 -->
+
+                        <div class="col-lg-6">
+                            <div class="information_module order_summary">
+                                <div class="toggle_title">
+                                    <h4>Order Summary</h4>
+                                </div>
+
+                                <ul>
+                                    <li class="total_ammount">
+                                        <p>Total</p>
+                                        <span>Rs. {{ order.id }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.information_module-->
+
+                            <div class="information_module payment_options">
+                                
+                                <div class="payment_info modules__content">
+                                    <div class="form-group">
+                                        <label for="card_number">Card Number</label>
+                                        <div id="card-number" class="field"></div>
+                                    </div>
+
+                                    <!-- lebel for date selection -->
+                                    <div class="form-group">
+                                        <label for="name">Expire Date</label>
+                                        <div id="expiration-date" class="field"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cv_code">CVV Code</label>
+                                        <div id="cvv" class="field"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="hidden" id="nonce" name="payment_method_nonce" value="">
+                                            {% csrf_token %}   
+                                            <input type="submit" class="btn btn--round btn--default" value="Pay">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end /.information_module-->
+                        </div>
+                        <!-- end /.col-md-6 -->
+                    </div>
+                    <!-- end /.row -->
+                </form>
+                <!-- end /form -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.dashboard_menu_area -->
+    </section>
+    {% include 'home/footer.html' %}
+
+    <script src="https://js.braintreegateway.com/web/3.29.0/js/client.min.js"></script>
+    <!-- Load Hosted Fields component. -->
+    <script src="https://js.braintreegateway.com/web/3.29.0/js/hosted-fields.min.js"></script>
+    <script>
+    var form = document.querySelector('#payment');
+    var submit = document.querySelector('input[type="submit"]');
+    
+    braintree.client.create({
+        authorization: '{{ client_token }}'
+    }, function (clientErr, clientInstance) {     
+        if (clientErr) {
+            console.error(clientErr);
+            return;
+            }
+        
+        braintree.hostedFields.create({
+            client: clientInstance,
+            styles: {
+                'input': {'font-size': '13px'},
+                'input.invalid': {'color': 'red'},
+                'input.valid': {'color': 'green'}
+            },
+            fields: {
+                number: {selector: '#card-number'},
+                cvv: {selector: '#cvv'},
+                expirationDate: {selector: '#expiration-date'}
+            }
+        }, function (hostedFieldsErr, hostedFieldsInstance) {
+          if (hostedFieldsErr) {
+            console.error(hostedFieldsErr);
+            return;
+            }
+        
+            submit.removeAttribute('disabled');
+        
+            form.addEventListener('submit', function (event){
+                event.preventDefault();
+            
+                hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+        
+                    if (tokenizeErr) {
+                        console.error(tokenizeErr);
+                        return;
+                    }
+                    // set nonce to send to the server
+                    document.getElementById('nonce').value = payload.nonce;
+                    // submit form
+                    document.getElementById('payment').submit();
+                });
+            }, false);
+        });
+    });
+    </script>
+   
+{% endblock  %}
+
+
+
+</body>
+
+
+<!-- Mirrored from demo.aazztech.com/theme/html/martplace/dist/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Sep 2020 15:04:55 GMT -->
+</html>
