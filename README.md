@@ -1,6 +1,11 @@
 # ecommerce
 This is the ecommerce project completely build on python with the help of Django framework.
 plss install the Rabbit Mq and start in your system if its not installed and running.
+At the very first Basic step pls check to install in your system.
+
+--sudo apt install python3-distutils.
+
+After this plss do the following as follows-
 
 1. Create the Virtual env 
 2. Install all the requirements with command
